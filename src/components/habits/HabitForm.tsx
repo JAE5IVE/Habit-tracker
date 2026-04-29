@@ -44,7 +44,11 @@ export default function HabitForm({ habit, onSave, onCancel }: HabitFormProps) {
   }
 
   return (
-    <form data-testid="habit-form" onSubmit={handleSubmit} className="space-y-4 rounded-md border border-slate-200 bg-white p-4 shadow-sm">
+    <form
+      data-testid="habit-form"
+      onSubmit={handleSubmit}
+      className="space-y-4 rounded-lg border border-emerald-100 bg-white p-4 shadow-sm sm:p-5"
+    >
       <div>
         <label htmlFor="habit-name" className="block text-sm font-medium text-slate-800">
           Habit name
@@ -54,7 +58,7 @@ export default function HabitForm({ habit, onSave, onCancel }: HabitFormProps) {
           data-testid="habit-name-input"
           value={name}
           onChange={(event) => setName(event.target.value)}
-          className="mt-2 w-full rounded-md border border-slate-300 px-3 py-3"
+          className="mt-2 w-full rounded-md border border-slate-300 bg-white px-3 py-3 shadow-sm"
         />
       </div>
       <div>
@@ -67,7 +71,7 @@ export default function HabitForm({ habit, onSave, onCancel }: HabitFormProps) {
           value={description}
           onChange={(event) => setDescription(event.target.value)}
           rows={3}
-          className="mt-2 w-full rounded-md border border-slate-300 px-3 py-3"
+          className="mt-2 w-full rounded-md border border-slate-300 bg-white px-3 py-3 shadow-sm"
         />
       </div>
       <div>
@@ -79,17 +83,17 @@ export default function HabitForm({ habit, onSave, onCancel }: HabitFormProps) {
           data-testid="habit-frequency-select"
           value="daily"
           onChange={() => undefined}
-          className="mt-2 w-full rounded-md border border-slate-300 bg-white px-3 py-3"
+          className="mt-2 w-full rounded-md border border-slate-300 bg-white px-3 py-3 shadow-sm"
         >
           <option value="daily">Daily</option>
         </select>
       </div>
       {error ? <p className="text-sm font-semibold text-red-700">{error}</p> : null}
-      <div className="flex gap-3">
+      <div className="flex flex-wrap gap-3">
         <button
           data-testid="habit-save-button"
           type="submit"
-          className="rounded-md bg-emerald-700 px-4 py-3 font-semibold text-white hover:bg-emerald-800"
+          className="rounded-md bg-emerald-700 px-4 py-3 font-semibold text-white shadow-sm transition hover:bg-emerald-800"
         >
           Save habit
         </button>
@@ -97,7 +101,7 @@ export default function HabitForm({ habit, onSave, onCancel }: HabitFormProps) {
           <button
             type="button"
             onClick={onCancel}
-            className="rounded-md border border-slate-300 px-4 py-3 font-semibold text-slate-700 hover:bg-slate-100"
+            className="rounded-md border border-slate-300 bg-white px-4 py-3 font-semibold text-slate-700 shadow-sm transition hover:bg-slate-100"
           >
             Cancel
           </button>
